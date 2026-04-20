@@ -1,11 +1,13 @@
 'use server'
 
 import ClientPageComponent from "@/common/components/pages/ClientPageComponent/Delivery";
-import { getClients, searchClient } from "../Infrastructure";
+import { getClients, searchClient, searchByMerchant } from "../Infrastructure";
 
-export default async function ClientPageServerComponent({input}:{input?:string}) {
+export default async function ClientPageServerComponent({input, mode}:{input?:string, mode?:string}) {
   
-  const response: any = input ? await searchClient(input) : await getClients()
+  const response: any = input ? (mode == 'client' ? await searchClient(input) : await searchByMerchant(input)) : await getClients()
 
-  return <ClientPageComponent data={response.data}/>
+  return (
+  <ClientPageComponent data={response.data}/>
+  )
 }

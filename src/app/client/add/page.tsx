@@ -1,8 +1,15 @@
-'use client'
 import ClientFormComponent from "@/common/components/forms/ClientFormComponent/Delivery";
+import Service from "@/service/src";
 
-export default function ClientForm() {
+export default async function ClientForm() {
+
+  const response: any= await Service.getCases('getMerchants', {
+        signal: new AbortController().signal,
+        endPointData: {},
+        token: undefined
+    })
+
   return (
-      <ClientFormComponent />
+      <ClientFormComponent merchants={response.data}/>
   )
 }

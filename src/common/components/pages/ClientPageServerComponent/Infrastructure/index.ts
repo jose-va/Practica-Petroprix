@@ -18,3 +18,12 @@ export function searchClient(input: string): Promise<any> {
     }) 
 }
 
+export function searchByMerchant(input: string): Promise<any> {
+
+    return Service.getCases('findByMerchantName', {
+        signal: new AbortController().signal,
+        endPointData: input,
+        token: undefined 
+    }) 
+}
+

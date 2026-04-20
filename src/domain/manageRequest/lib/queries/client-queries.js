@@ -19,5 +19,8 @@ export const CLIENT_QUERIES = {
 
    deleteClient:() =>
     `http://localhost:8080/api/client/delete`,
+
+   findByMerchantName:() =>
+    `http://localhost:8080/api/client/findByMerchantName`,
 }
 

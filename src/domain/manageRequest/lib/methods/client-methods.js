@@ -19,5 +19,8 @@ export const CLIENT_METHODS = {
   },
   deleteClient:(response) => {
     return response
+  },
+  findByMerchantName:(response) => {
+    return response
   }
 }

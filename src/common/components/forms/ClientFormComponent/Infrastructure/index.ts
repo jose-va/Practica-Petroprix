@@ -25,4 +25,16 @@ export  function updateClient(data: ClientType) {
         console.error("No se ha podido actualizar al cliente. ", error)
 }}
 
+export  function findMerchantByName(data: ClientType) {
+    try{
+        return Service.getCases('findMerchantByName', {
+            signal: new AbortController().signal, 
+            endPointData: data,
+            token: undefined
+        })
+
+    }catch(error){
+        console.error("No se ha podido actualizar al cliente. ", error)
+}}
+
   

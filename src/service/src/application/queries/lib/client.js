@@ -1,3 +1,4 @@
+import { searchByMerchantName } from '@/common/components/pages/ClientPageServerComponent/Infrastructure';
 import manageRequest from '@/domain/manageRequest';
 
 const clientUseCases = {
@@ -99,6 +100,21 @@ const clientUseCases = {
     return manageRequest(
       signal,
       'getClientByName',
+      values,
+      'url',
+      'normal',
+      'get',
+      token,
+      undefined,
+      header
+    )
+  },
+
+  findByMerchantName: (signal, values, token) => {
+    const header = {'Content-Type': 'application/json'} 
+    return manageRequest(
+      signal,
+      'findByMerchantName',
       values,
       'url',
       'normal',
