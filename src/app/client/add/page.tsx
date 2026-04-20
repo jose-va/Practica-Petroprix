@@ -1,5 +1,5 @@
 'use client'
-import ClientFormComponent from "@/common/components/ClientFormComponent/Delivery";
+import ClientFormComponent from "@/common/components/forms/ClientFormComponent/Delivery";
 
 export default function ClientForm() {
   return (

@@ -1,4 +1,4 @@
-import HomePageComponent from '@/common/components/HomePageComponent';
+import HomePageComponent from '@/common/components/home';
 import React from 'react' ; 
  
 export default function HomePage() {

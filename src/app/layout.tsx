@@ -1,6 +1,6 @@
 // @ts-ignore
 import "./globals.css";
-import LayoutComponent from "@/common/components/PageLayoutComponent";
+import LayoutComponent from "@/common/components/layout";
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode;}>) {
   return (
