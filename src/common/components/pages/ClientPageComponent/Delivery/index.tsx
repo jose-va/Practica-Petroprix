@@ -2,7 +2,7 @@
 
 import { FC } from "react"
 import { Space, TableProps, Tag } from "antd"
-import { message, notification } from 'antd';
+import { notification } from 'antd';
 import TableComponent from "../../../TableComponent"
 import { ClientPageComponentProps, ClientType } from "../interface"
 import Link from "next/link"
@@ -34,6 +34,16 @@ const ClientPageComponent: FC<ClientPageComponentProps> = ({data}) => {
             key: 'name',
         },
         {
+            title: 'Apellido',
+            dataIndex: 'surname',
+            key: 'surname',
+        },
+        {
+            title: 'Teléfono',
+            dataIndex: 'phone',
+            key: 'phone',
+        },
+        {
             title: 'Email',
             dataIndex: 'email',
             key: 'email',
@@ -49,13 +59,19 @@ const ClientPageComponent: FC<ClientPageComponentProps> = ({data}) => {
             render: () => <Tag color="green">ACTIVO</Tag>,
         },
         {
+            title: 'Comercios',
+            key: 'merchants',
+            render: (_, record) => (
+                <Link href={`/merchant?input=${record.id}&mode=client`}>Comercios</Link>
+            ),
+        },
+        {
             title: 'Action',
             key: 'action',
-            render: (action, record) => {
-                console.log(action)
+            render: (_, record) => {
                 return (
                     <Space size="medium">
-                        <Link href={`/client/edit?id=${record.id}&address=${record.cifNifNie}`}>✏️</Link>
+                        <Link href={`/client/edit?id=${record.id}`}>✏️</Link>
                         <button onClick={() => handleDelete(record.id, record.cifNifNie)}>❌</button>
                     </Space>
                 )

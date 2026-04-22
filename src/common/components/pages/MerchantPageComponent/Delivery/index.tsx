@@ -28,7 +28,7 @@ const MerchantPageComponent: FC<MerchantPageComponentProps> = ({data}) => {
             key: 'id',
         },
         {
-            title: 'Nombre',
+            title: 'Comercio',
             dataIndex: 'name',
             key: 'name',
         },
@@ -43,16 +43,21 @@ const MerchantPageComponent: FC<MerchantPageComponentProps> = ({data}) => {
             key: 'merchantType',
         },
         {
+            title: 'Cliente',
+            dataIndex: 'clientId',
+            key: 'clientId',
+        },
+        {
             title: 'Estado',
             key: 'state',
-            render: () => <Tag color="green">ACTIVO</Tag>,
+            render: () => <Tag color="green">OPERATIVO</Tag>,
         },
         {
             title: 'Action',
             key: 'action',
             render: (_, record) => (
                 <Space size="medium">
-                    <Link href={`/merchant/edit?id=${record.id}&address=${record.address}`}>✏️</Link>
+                    <Link href={`/merchant/edit?id=${record.id}`}>✏️</Link>
                     <button onClick={() => handleDelete(record.id, record.address)}>❌</button>
                 </Space>
             ),

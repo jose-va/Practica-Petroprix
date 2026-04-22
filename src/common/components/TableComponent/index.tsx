@@ -1,5 +1,5 @@
 import { TableComponentProps } from "./interface";
-import { Table } from "antd"; //-- Importamos el componente tabla que hemos extraído de ant design
+import { Table } from "antd"; 
 import { FC } from "react";
 
 const TableComponent: FC<TableComponentProps> = ({columns, data}) => {

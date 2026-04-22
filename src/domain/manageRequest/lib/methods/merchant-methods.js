@@ -8,6 +8,9 @@ export const MERCHANT_METHODS = {
   getMerchantByName:(response) => {
     return response
   },
+  getMerchantByClientID:(response) => {
+    return response
+  },
   createMerchant:(response) => {
     return response
   },

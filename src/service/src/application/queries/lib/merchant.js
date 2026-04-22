@@ -20,6 +20,7 @@ const merchantUseCases = {
 
   updateMerchant: (signal, values, token) => {
 
+    const header = {'Content-Type': 'application/json'} 
     return manageRequest(
       signal,
       'updateMerchant',
@@ -29,6 +30,7 @@ const merchantUseCases = {
       'put',
       token,
       undefined,
+      header
     )
   },
 
@@ -38,19 +40,33 @@ const merchantUseCases = {
       signal,
       'deleteMerchant',
       values,
-      'query',
+      'url',
       'normal',
-      'DELETE',
+      'delete',
       token,
       undefined,
     )
   },
-
+  
   getMerchants: (signal, values, token) => {
 
     return manageRequest(
       signal,
       'getMerchants',
+      values,
+      'query',
+      'normal',
+      'get',
+      token,
+      undefined,
+    )
+  },
+
+  getMerchantByClientID: (signal, values, token) => {
+
+    return manageRequest(
+      signal,
+      'getMerchantByClientID',
       values,
       'query',
       'normal',
@@ -66,7 +82,7 @@ const merchantUseCases = {
       signal,
       'getMerchantByID',
       values,
-      'query',
+      'url',
       'normal',
       'get',
       token,
@@ -76,17 +92,15 @@ const merchantUseCases = {
 
   getMerchantByName: (signal, values, token) => {
 
-    const header = {'Content-Type': 'application/json'} 
     return manageRequest(
       signal,
       'getMerchantByName',
       values,
-      'url',
+      'query',
       'normal',
       'get',
       token,
       undefined,
-      header
     )
   }
 }

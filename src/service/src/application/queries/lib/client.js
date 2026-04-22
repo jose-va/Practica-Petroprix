@@ -1,4 +1,3 @@
-import { searchByMerchantName } from '@/common/components/pages/ClientPageServerComponent/Infrastructure';
 import manageRequest from '@/domain/manageRequest';
 
 const clientUseCases = {
@@ -22,7 +21,6 @@ const clientUseCases = {
   updateClient: (signal, values, token) => {
 
     const header = {'Content-Type': 'application/json'} 
-
     return manageRequest(
       signal,
       'updateClient',
@@ -42,9 +40,9 @@ const clientUseCases = {
       signal,
       'deleteClient',
       values,
-      'query',
+      'url',
       'normal',
-      'DELETE',
+      'delete',
       token,
       undefined,
     )
@@ -70,7 +68,7 @@ const clientUseCases = {
       signal,
       'getClientByID',
       values,
-      'query',
+      'url',
       'normal',
       'get',
       token,
@@ -80,50 +78,45 @@ const clientUseCases = {
 
   getClientByEmail: (signal, values, token) => {
 
-    const header = {'Content-Type': 'application/json'} 
     return manageRequest(
       signal,
       'getClientByEmail',
       values,
-      'url',
+      'query',
       'normal',
       'get',
       token,
       undefined,
-      header
     )
   },
 
   getClientByName: (signal, values, token) => {
 
-    const header = {'Content-Type': 'application/json'} 
     return manageRequest(
       signal,
       'getClientByName',
       values,
-      'url',
+      'query',
       'normal',
       'get',
       token,
       undefined,
-      header
     )
   },
 
-  findByMerchantName: (signal, values, token) => {
-    const header = {'Content-Type': 'application/json'} 
+  getClientByMerchantID: (signal, values, token) => {
+
     return manageRequest(
       signal,
-      'findByMerchantName',
+      'getClientByMerchantID',
       values,
-      'url',
+      'query',
       'normal',
       'get',
       token,
       undefined,
-      header
     )
-  },
+  }
 }
 
 export default clientUseCases;

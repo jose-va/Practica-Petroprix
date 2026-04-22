@@ -11,6 +11,9 @@ export const CLIENT_METHODS = {
   getClientByName:(response) => {
     return response
   },
+  getClientByMerchant:(response) => {
+    return response
+  },
   createClient:(response) => {
     return response
   },
@@ -20,7 +23,7 @@ export const CLIENT_METHODS = {
   deleteClient:(response) => {
     return response
   },
-  findByMerchantName:(response) => {
+  getMerchant:(response) => {
     return response
   }
 }

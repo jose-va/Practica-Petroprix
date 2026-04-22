@@ -9,20 +9,38 @@ export function getClients() {
     })
 }
 
-export function searchClient(input: string): Promise<any> {
+export function getClientByID(input: string): Promise<any> {
 
-    return Service.getCases('getClientByName', {
+    return Service.getCases('getClientByID', {
         signal: new AbortController().signal,
-        endPointData: input,
+        endPointData: { id: input },
         token: undefined 
     }) 
 }
 
-export function searchByMerchant(input: string): Promise<any> {
+export function getClientByName(input: string): Promise<any> {
 
-    return Service.getCases('findByMerchantName', {
+    return Service.getCases('getClientByName', {
         signal: new AbortController().signal,
-        endPointData: input,
+        endPointData: { name: input },
+        token: undefined 
+    }) 
+}
+
+export function getClientByEmail(input: string): Promise<any> {
+
+    return Service.getCases('getClientByEmail', {
+        signal: new AbortController().signal,
+        endPointData: { email: input },
+        token: undefined 
+    }) 
+}
+
+
+export function getClientByMerchantID(input: string): Promise<any> {
+    return Service.getCases('getClientByMerchantID', {
+        signal: new AbortController().signal,
+        endPointData: { merchantId: input },
         token: undefined 
     }) 
 }
