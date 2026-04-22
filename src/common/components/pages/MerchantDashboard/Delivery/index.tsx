@@ -46,7 +46,7 @@ export default function MerchantDashboard({ children }: { children: React.ReactN
                     ]}
                 />
             </div>
-            <Suspense fallback={<Spin indicator={<LoadingOutlined spin />} size="large" />}>
+            <Suspense fallback={<Spin indicator={<LoadingOutlined spin />} size="large" />} key={`${currentMode}-${currentInput}`}>
                 {children}
             </Suspense> 
             <Link href="/merchant/add" className="p-2 rounded-lg bg-cyan-600 text-white mb-4">Nuevo comerciante</Link>

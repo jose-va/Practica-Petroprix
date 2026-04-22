@@ -44,7 +44,7 @@ export default function ClientDashboard({ children }: { children: ReactNode}) {
               ]}
             />
       </div>
-      <Suspense fallback={<Spin indicator={<LoadingOutlined spin />} size="large" />}>
+      <Suspense fallback={<Spin indicator={<LoadingOutlined spin />} size="large" />} key={`${currentInput}-${currentMode}`}>
         {children}
       </Suspense>
       <Link href="/client/add" className="p-2 rounded-lg bg-cyan-600 text-white mb-4">Nuevo cliente</Link>
