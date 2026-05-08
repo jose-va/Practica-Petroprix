@@ -1,36 +1,45 @@
 import ClientPageComponent from "@/common/components/pages/ClientPageComponent/Delivery";
-import { getClientByEmail, getClientByID, getClientByName, getClients, getClientByMerchantID} from "../Infrastructure";
+import {
+  getClientByEmail,
+  getClientByID,
+  getClientByName,
+  getClients,
+  getClientByMerchantID,
+} from "../Infrastructure";
 
-export default async function ClientPageServerComponent({input, mode}:{input?:string, mode?:string}) {
-  
-  let response: any
+export default async function ClientPageServerComponent({
+  input,
+  mode,
+}: {
+  input?: string;
+  mode?: string;
+}) {
+  let response: any;
 
   if (!input) {
     response = await getClients();
-  } else {  
+  } else {
     switch (mode) {
-      case 'id':
-        response = await getClientByID(input); 
+      case "id":
+        response = await getClientByID(input);
         break;
-        
-      case 'email':
+      case "email":
         response = await getClientByEmail(input);
         break;
-        
-      case 'merchant':
+      case "merchant":
         response = await getClientByMerchantID(input);
         break;
-        
-      case 'name':
+      case "name":
         response = await getClientByName(input);
         break;
-
       default:
         response = await getClients();
     }
   }
 
   return (
-  <ClientPageComponent data={response.data}/>
+    <>
+      <ClientPageComponent data={response.data} />
+    </>
   )
 }

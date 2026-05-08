@@ -1,12 +1,21 @@
-import MerchantDashboard from "@/common/components/pages/MerchantDashboard/Delivery";
 import MerchantPageServerComponent from "@/common/components/pages/MerchantPageServerComponent/Delivery";
+import { Spin } from "antd";
+import { Suspense } from "react";
+import { LoadingOutlined } from "@ant-design/icons";
 
-export default async function Page({searchParams}: {searchParams: Promise<{ input?: string, mode?: string }>}) {
-  const { input, mode } = await searchParams;
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: { input?: string; mode?: string };
+}) {
+  const { input, mode } = searchParams;
 
   return (
-    <MerchantDashboard>
-       <MerchantPageServerComponent input={input} mode={mode} />
-    </MerchantDashboard>
+    <Suspense
+      fallback={<Spin indicator={<LoadingOutlined spin />} size="large" />}
+      key={input}
+    >
+      <MerchantPageServerComponent input={input} mode={mode} />
+    </Suspense>
   );
 }
